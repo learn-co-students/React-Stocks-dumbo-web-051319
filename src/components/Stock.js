@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Stock = () => (
+const Stock = (props) => (
   <div>
-
-    <div className="card">
+{/* without ()=> we're executing or firing the function but with the arrow function we're defining the function whos job is to firing the function.*/}
+    <div className="card" onClick={()=>props.handleClickStock(props)}>
       <div className="card-body">
         <h5 className="card-title">{
-            //Company Name
+            props.name
           }</h5>
         <p className="card-text">{
-            //ticker: stock price
+            `${props.ticker} : ${props.price}`
           }</p>
       </div>
     </div>
@@ -19,3 +19,5 @@ const Stock = () => (
 );
 
 export default Stock
+
+{/*get access to props in a functional component, using props, no this */}
